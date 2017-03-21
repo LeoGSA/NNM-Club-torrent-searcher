@@ -12,7 +12,10 @@ class NNMClub(object):
     url = 'http://nnmclub.to/forum/'
 
     def auth(self, username, password):
-        """ Этот модуль авторизуется на сайте и сохраняет кукисы в глобальную переменную"""
+        """ 
+        ENG: This module goes through authorization and saves cookies to a global variable.
+        RUS: Этот модуль авторизуется на сайте и сохраняет кукисы в глобальную переменную.
+        """
 
         session = requests.Session()
         url = self.url + 'login.php'
@@ -41,8 +44,11 @@ class NNMClub(object):
         cookies = session.cookies
 
     def search_list_txt_parser(self):
-        """ Открывает и парсит файл search_list.txt из той же папки, где программа,
-        возвращает список с названиями фильмов """
+        """ 
+        ENG: Opens the search_list.txt file from the program directory and parses it. Returns films list.
+        RUS: Открывает и парсит файл search_list.txt из той же папки, где программа,
+        возвращает список с названиями фильмов.
+        """
 
         search_list = []
 
@@ -55,8 +61,11 @@ class NNMClub(object):
         return search_list
 
     def search(self, string_to_search):
-        """ Этот модуль выполняет поиск на трекере по строке string_to_search,
-        возвращает страницу с результатами поиска"""
+        """ 
+        ENG: This module makes a search on a tracker by string_to_search. Returns a page with search results.
+        RUS: Этот модуль выполняет поиск на трекере по строке string_to_search,
+        возвращает страницу с результатами поиска.
+        """
 
         url = self.url + "tracker.php"
 
@@ -103,8 +112,10 @@ class NNMClub(object):
         return page
 
     def analize_search_result(self, page):
-        """ Получает страницу с результатами поиска,
-            парсит её и возвращает список строк """
+        """ 
+        ENG: Takes a page with search results, parses it and returns a list of lines with results.
+        RUS: Получает страницу с результатами поиска, парсит её и возвращает список строк 
+        """
 
         page = page.content
 
@@ -143,8 +154,10 @@ class NNMClub(object):
         return string_list
 
     def general(self, username, password):
-        """ Запускает другие модули в нужном порядке.
-        Записывает результаты в файл result_list.txt """
+        """ 
+        ENG: Runs other modules in needed order. Writes results to a file result_list.txt.
+        RUS: Запускает другие модули в нужном порядке. Записывает результаты в файл result_list.txt.
+        """
 
         self.auth(username, password)
         film_list = self.search_list_txt_parser()
