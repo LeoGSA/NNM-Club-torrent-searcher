@@ -1,4 +1,5 @@
 # coding: utf-8
+# © LeoGSA - Sergey Grigoriev (leogsa@gmail.com)
 
 import requests
 import lxml.html as html
